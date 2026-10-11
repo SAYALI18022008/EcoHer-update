@@ -136,4 +136,189 @@
   // Role-aware dashboard gate: a URL hash cannot grant a role or bypass login.
   if(location.hash==="#dashboard"){if(activeUser())renderDashboard();else{location.hash="#home";setTimeout(()=>openAuth("login"),100)}}else{renderProducts();renderMentors()}
   setLanguage(language);
+  
+  // EcoHer demo entrepreneur account for presentations
+  function seedEcoHerDemoAccount() {
+    const email = "aarohi.demo@example.com";
+    const password = "EcoHerDemo@2026";
+
+    // Avoid creating duplicate demo accounts
+    let allUsers = users();
+    let demoUser = allUsers.find(user => user.email === email);
+
+    if (!demoUser) {
+      demoUser = {
+        id: "demo-aarohi",
+        name: "Aarohi Sharma",
+        email,
+        password,
+        mobile: "9876543210",
+        city: "Pune",
+        state: "Maharashtra",
+        preferredLanguage: "en",
+        role: "entrepreneur",
+        businessName: "Aarohi Loom Studio",
+        businessCategory: "Textiles",
+        sustainabilityCategory: "Upcycled materials",
+        businessLocation: "Pune, Maharashtra",
+        createdAt: new Date().toISOString()
+      };
+
+      allUsers.push(demoUser);
+      save(STORE.users, allUsers);
+    }
+
+    // Create the demo business profile
+    const profileKey = `ecoh_v2_profiles_${demoUser.id}`;
+
+    if (!localStorage.getItem(profileKey)) {
+      save(profileKey, {
+        businessName: "Aarohi Loom Studio",
+        founderName: "Aarohi Sharma",
+        city: "Pune",
+        state: "Maharashtra",
+        category: "Textiles",
+        story:
+          "A demo women-led business creating practical textile products.",
+        materials: "Cotton canvas and fabric offcuts",
+        production: "Small-batch stitching",
+        packaging: "Recycled paper packaging",
+        womenSupported: 3,
+        public: true,
+        hideContact: true
+      });
+    }
+
+    // Add demo products without duplicating them
+    const products = safeGet(STORE.products, []);
+    const demoProductsForOwner = [
+      {
+        id: "aarohi-tote",
+        name: "Indigo Everyday Tote",
+        price: 549,
+        stock: 14,
+        category: "Accessories",
+        description:
+          "An everyday tote inspired by traditional Indian textile motifs.",
+        materials: "Cotton canvas",
+        production: "Small-batch stitching",
+        packaging: "Recycled paper wrap",
+        status: "Basic Review Pending",
+        icon: "👜"
+      },
+      {
+        id: "aarohi-runner",
+        name: "Handcrafted Table Runner",
+        price: 899,
+        stock: 8,
+        category: "Textiles",
+        description:
+          "A handcrafted table runner for everyday home decor.",
+        materials: "Cotton fabric",
+        production: "Small-batch textile work",
+        packaging: "Paper sleeve",
+        status: "Information Submitted",
+        icon: "🧵"
+      },
+      {
+        id: "aarohi-pouch",
+        name: "Upcycled Fabric Pouch",
+        price: 299,
+        stock: 11,
+        category: "Accessories",
+        description:
+          "A useful pouch made from leftover fabric pieces.",
+        materials: "Fabric offcuts",
+        production: "Patchwork stitching",
+        packaging: "Paper wrap",
+        status: "Basic Review Pending",
+        icon: "🪡"
+      }
+    ];
+
+    for (const item of demoProductsForOwner) {
+      if (!products.some(product => product.id === item.id)) {
+        products.push({
+          ...item,
+          owner: demoUser.id,
+          business: demoUser.businessName,
+          city: demoUser.city,
+          state: demoUser.state,
+          evidence:
+            "Demo seller-provided information; independent verification has not occurred."
+        });
+      }
+    }
+
+    save(STORE.products, products);
+
+    // Seed financial records only once
+    const transactionKey = `ecoh_v2_transactions_${demoUser.id}`;
+
+    if (!localStorage.getItem(transactionKey)) {
+      save(transactionKey, [
+        {
+          id: "aarohi-sale-1",
+          owner: demoUser.id,
+          type: "sale",
+          description: "Tote bag orders",
+          category: "Product sales",
+          amount: 2745,
+          date: "2026-10-05"
+        },
+        {
+          id: "aarohi-sale-2",
+          owner: demoUser.id,
+          type: "sale",
+          description: "Table runner orders",
+          category: "Product sales",
+          amount: 1798,
+          date: "2026-10-07"
+        },
+        {
+          id: "aarohi-sale-3",
+          owner: demoUser.id,
+          type: "sale",
+          description: "Printed pouch orders",
+          category: "Product sales",
+          amount: 1495,
+          date: "2026-10-09"
+        },
+        {
+          id: "aarohi-expense-1",
+          owner: demoUser.id,
+          type: "expense",
+          description: "Fabric and materials",
+          category: "Materials",
+          amount: 1200,
+          date: "2026-10-05"
+        },
+        {
+          id: "aarohi-expense-2",
+          owner: demoUser.id,
+          type: "expense",
+          description: "Packaging supplies",
+          category: "Packaging",
+          amount: 350,
+          date: "2026-10-07"
+        },
+        {
+          id: "aarohi-expense-3",
+          owner: demoUser.id,
+          type: "expense",
+          description: "Local delivery",
+          category: "Delivery",
+          amount: 400,
+          date: "2026-10-09"
+        }
+      ]);
+    }
+
+    console.log("EcoHer demo account is ready:", email);
+  }
+
+  // Run only when explicitly requested through ?demo=1
+  if (new URLSearchParams(location.search).get("demo") === "1") {
+    seedEcoHerDemoAccount();
+  }
 })();
