@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1e322a">
+  <title>EcoHer — Grow with purpose</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="EcoHer home">
+      <span class="brand-mark">e<span>h</span></span>
+      <span><strong>EcoHer</strong><small>GROW WITH PURPOSE</small></span>
+    </a>
+    <nav id="mainNav" class="main-nav" aria-label="Main navigation">
+      <a href="#home" data-i18n="navHome">Home</a>
+      <a href="#marketplace" data-i18n="navMarket">Marketplace</a>
+      <a href="#mentors" data-i18n="navMentors">Mentorship</a>
+      <a href="#about" data-i18n="navAbout">Our purpose</a>
+    </nav>
+    <div class="header-actions">
+      <select id="languageSelect" class="language-select" aria-label="Choose language">
+        <option value="en">EN</option><option value="hi">हिंदी</option><option value="mr">मराठी</option>
+      </select>
+      <button id="headerLogin" class="btn btn-quiet" data-i18n="login">Log in</button>
+      <button id="headerJoin" class="btn btn-primary" data-i18n="join">Join EcoHer <span aria-hidden="true">↗</span></button>
+      <button id="mobileMenu" class="mobile-menu" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <main id="app" tabindex="-1">
+    <section class="hero section-wrap" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="heroEyebrow">A community for women who build</span></div>
+        <h1 data-i18n="heroTitle">Small businesses.<br><em>Lasting impact.</em></h1>
+        <p class="hero-text" data-i18n="heroText">A place for women entrepreneurs to grow with trusted mentorship, conscious customers, and a community that believes in their work.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-large" data-action="register" data-i18n="heroCta">Start your journey <span>↗</span></button>
+          <a class="text-link" href="#marketplace" data-i18n="exploreMarket">Explore the marketplace <span>→</span></a>
+        </div>
+        <div class="hero-proof">
+          <div class="avatar-stack" aria-hidden="true"><span>स</span><span>म</span><span>आ</span></div>
+          <div><strong data-i18n="communityLine">Made for women-led businesses</strong><small data-i18n="communitySub">Local roots. Shared growth. Better choices.</small></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image-frame">
+          <img class="hero-image" src="indian-women-hero.png" alt="Indian woman entrepreneur in a traditional textile and craft workspace" onerror="this.style.display='none';this.parentElement.classList.add('image-fallback')">
+          <div class="fallback-copy"><span>EcoHer community</span><strong>Women growing<br>together.</strong></div>
+        </div>
+        <div class="image-note"><span class="note-icon">✳</span><span><strong>Purpose over pressure</strong><small>Progress at your own pace</small></span></div>
+        <div class="hero-stamp"><span>GROW</span><span>TOGETHER</span><b>✳</b></div>
+      </div>
+      <div class="hero-bottom-note"><span>01 / 04</span><span>WOMEN • ENTERPRISE • EARTH</span><span>↓</span></div>
+    </section>
+
+    <section class="stats-strip">
+      <div><strong>01</strong><span>Build your business</span></div>
+      <div><strong>02</strong><span>Learn from women</span></div>
+      <div><strong>03</strong><span>Make impact visible</span></div>
+      <div><strong>04</strong><span>Shop with intention</span></div>
+    </section>
+
+    <section class="section-wrap section-space" id="about">
+      <div class="section-heading">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span>WHY ECOHER</div><h2>Growth feels different<br>when <em>we grow together.</em></h2></div>
+        <p>Building a business takes courage. You deserve a circle that shares knowledge, opens doors, and celebrates the work behind every product.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card feature-dark"><span class="feature-number">01</span><div class="feature-symbol">↗</div><h3>Mentorship that moves you forward</h3><p>Find guidance from people who understand your goals, challenges, and context.</p><a href="#mentors">Meet the mentors <span>→</span></a></article>
+        <article class="feature-card"><span class="feature-number">02</span><div class="feature-symbol">✳</div><h3>Trust, built step by step</h3><p>Share sustainability details transparently and see what is submitted versus verified.</p><a href="#marketplace">Explore conscious products <span>→</span></a></article>
+        <article class="feature-card"><span class="feature-number">03</span><div class="feature-symbol">♡</div><h3>Customers who care</h3><p>Discover women-led businesses and the stories, skills, and care behind their work.</p><a href="#marketplace">Shop women-led <span>→</span></a></article>
+      </div>
+    </section>
+
+    <section class="maker-stories section-wrap section-space" id="stories">
+      <div class="section-heading">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span>MADE BY HER</div><h2>Real hands.<br><em>Remarkable stories.</em></h2></div>
+        <p>From craft tables to home studios, women are building businesses with skill, care, and ideas worth sharing.</p>
+      </div>
+      <div class="story-gallery">
+        <article class="story-card story-tall"><img src="indian-women-hero.png" alt="Indian woman entrepreneur in her artisan business" loading="lazy"><div class="story-overlay"><span>01 / CRAFT & TEXTILES</span><h3>Her craft, her livelihood.</h3><p>Small-batch making. Big ambition.</p></div></article>
+        <article class="story-card"><img src="women-community.png" alt="Indian women entrepreneurs packing handmade products together" loading="lazy"><div class="story-overlay"><span>02 / COMMUNITY</span><h3>Better, together.</h3></div></article>
+        <article class="story-card"><img src="botanical-products.png" alt="Botanical skincare, handmade soaps and natural personal care products" loading="lazy"><div class="story-overlay"><span>03 / CONSCIOUS PRODUCTS</span><h3>Care in every detail.</h3></div></article>
+      </div>
+      <p class="image-note-small">Demo photography for the prototype. Business profiles and products are sample listings.</p>
+    </section>
+
+    <section class="market-section" id="marketplace">
+      <div class="section-wrap section-space">
+        <div class="section-heading">
+          <div><div class="eyebrow"><span class="eyebrow-line"></span>THE ECOHER MARKET</div><h2>Good things, made<br><em>with intention.</em></h2></div>
+          <p>Discover thoughtful products from women-led demo businesses. Every listing is sample content for this prototype.</p>
+        </div>
+        <div class="market-controls">
+          <label class="search-box"><span>⌕</span><input id="marketSearch" type="search" placeholder="Search products or businesses" data-i18n-placeholder="searchPlaceholder"></label>
+          <select id="cityFilter" aria-label="Filter by city"><option value="">All cities</option><option>Pune</option><option>Mumbai</option><option>Jaipur</option><option>Nashik</option><option>Delhi</option></select>
+          <select id="categoryFilter" aria-label="Filter by category"><option value="">All categories</option><option>Textiles</option><option>Home decor</option><option>Personal care</option><option>Accessories</option></select>
+        </div>
+        <div id="productGrid" class="product-grid"></div>
+        <div class="center-action"><button class="btn btn-outline" data-action="marketAll">View all demo products <span>→</span></button></div>
+      </div>
+    </section>
+
+    <section class="mentor-section section-wrap section-space" id="mentors">
+      <div class="section-heading">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span>WISDOM SHARED FORWARD</div><h2>Meet your next<br><em>thinking partner.</em></h2></div>
+        <p>Mentorship starts with a conversation. Browse sample mentor profiles and send a request after creating an account.</p>
+      </div>
+      <div id="mentorGrid" class="mentor-grid"></div>
+    </section>
+
+    <section class="join-band">
+      <div class="section-wrap join-band-inner"><div><div class="eyebrow eyebrow-light">YOUR NEXT CHAPTER</div><h2>Your work matters.<br><em>Let it be seen.</em></h2></div><div><p>Bring your idea, your experience, and your ambition. There is room to grow here.</p><button class="btn btn-cream btn-large" data-action="register">Become part of EcoHer <span>↗</span></button></div></div>
+    </section>
+    <footer class="footer section-wrap"><a class="brand brand-footer" href="#home"><span class="brand-mark">e<span>h</span></span><span><strong>EcoHer</strong><small>GROW WITH PURPOSE</small></span></a><p>Built for women-led businesses and a more thoughtful way to grow.</p><div>© 2026 EcoHer · Frontend demo</div></footer>
+  </main>
+
+  <div id="modalRoot"></div>
+  <script src="app.js"></script>
+</body>
+</html>
